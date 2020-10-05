@@ -4,5 +4,5 @@
 		// Remove jest/node
 		"types": ["lua-types/5.3"]
 	},
-	"exclude": ["node_modules", "**/*.test.ts"]
+	"exclude": ["node_modules", "**/*.test.ts", "**/*.sample.tsx"]
 }

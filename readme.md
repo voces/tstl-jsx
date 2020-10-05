@@ -1,7 +1,7 @@
-# basic-pragma
+# lua-jsx
 
-This module provides a JSX pragma (createElement) for using JSX/TSX. The target
-is configurable via specifying a required adapter.
+This module provides transformers to handle JSX in Lua. For a pragma
+(createElement) and vdom, see 
 
 # Usage
 

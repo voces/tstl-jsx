@@ -4,7 +4,6 @@
 		"declaration": true,
 		"forceConsistentCasingInFileNames": true,
 		"jsx": "react",
-		"jsxFactory": "createElement",
 		"lib": ["ESNext", "DOM"],
 		"module": "commonjs",
 		"moduleResolution": "node",
@@ -17,6 +16,6 @@
 		"typeRoots": ["lua-types/5.3"],
 		"types": ["@types/jest", "@types/node", "lua-types/5.3"]
 	},
-	"include": ["src"],
+	"include": ["src", "tests"],
 	"exclude": ["node_modules"]
 }
