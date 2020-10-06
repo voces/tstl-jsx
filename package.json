@@ -1,6 +1,6 @@
 {
 	"name": "tstl-jsx",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Plugin to add JSX parsing to TSTL",
 	"author": "verit",
 	"license": "MIT",

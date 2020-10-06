@@ -2,8 +2,6 @@ import * as ts from "typescript";
 import * as tstl from "typescript-to-lua";
 import { literalVisitors } from "typescript-to-lua/dist/transformation/visitors/literal";
 
-console.log("loaded");
-
 const transformObjectLiteral = literalVisitors[
 	ts.SyntaxKind.ObjectLiteralExpression
 ] as tstl.FunctionVisitor<ts.ObjectLiteralExpression>;
