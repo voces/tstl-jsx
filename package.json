@@ -48,6 +48,6 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "github:voces/basic-pragma"
+		"url": "github:voces/tstl-jsx"
 	}
 }
