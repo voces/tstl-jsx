@@ -1,0 +1,17 @@
+{
+	"extends": "../../../../tsconfig.json",
+	"compilerOptions": {
+		"declaration": false,
+		"outDir": "./JsxTransformer/__lua__/",
+		"rootDir": "../.."
+	},
+	"tstl": {
+		"luaTarget": "5.3",
+		"luaBundle": "__lua__/bundle.lua",
+		"luaBundleEntry": "JsxTransformer.sample.tsx",
+		"luaPlugins": [
+			{ "name": "./JsxTransformer", "import": "JsxTransformer" }
+		]
+	},
+	"include": ["../../JsxTransformer.sample.tsx"]
+}

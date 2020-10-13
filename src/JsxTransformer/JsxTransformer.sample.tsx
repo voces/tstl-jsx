@@ -5,11 +5,12 @@ declare const Bar: any;
 declare const Baz: any;
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const App = (): unknown => (
+const staticProps = { bux: 5 };
+
+export const App = (): unknown => (
 	<Foo foo="foo">
 		<Bar bar={3}>
-			<Baz baz={{ foo: ["value1", "value2"] }} />
+			<Baz baz={{ foo: ["value1", "value2"] }} {...staticProps} />
 			<Baz />
 		</Bar>
 	</Foo>

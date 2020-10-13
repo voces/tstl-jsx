@@ -13,25 +13,16 @@ function transformJsxAttributesExpression(
 	expression: ts.JsxAttributes,
 	context: tstl.TransformationContext,
 ): tstl.VisitorResult<ts.Expression> {
-	if (
-		expression.properties.find(
-			(element) => element.kind === ts.SyntaxKind.JsxSpreadAttribute,
-		)
-	)
-		throw new Error("Unsupported: JsxSpreadAttribute");
-
-	const properties = expression.properties
-		.filter(
-			(element): element is ts.JsxAttribute =>
-				element.kind !== ts.SyntaxKind.JsxSpreadAttribute,
-		)
-		.map((element) => {
+	const properties = expression.properties.map((element) => {
+		if (element.kind === ts.SyntaxKind.JsxSpreadAttribute)
+			return ts.createSpreadAssignment(element.expression);
+		else {
 			const valueOrExpression = element.initializer
 				? element.initializer
 				: ts.createLiteral(true);
 			return ts.createPropertyAssignment(element.name, valueOrExpression);
-		});
-
+		}
+	});
 	return transformObjectLiteral(ts.createObjectLiteral(properties), context);
 }
 function transformJsxOpeningElement(
@@ -105,10 +96,54 @@ function transformJsxExpression(
 
 	return tstl.createNilLiteral();
 }
+
+function transformJsxFragment(
+	node: ts.JsxFragment,
+	context: tstl.TransformationContext,
+): tstl.Expression {
+	const [library, create] = context.options.jsxFactory
+		? context.options.jsxFactory.split(".")
+		: ["React", "createElement"];
+
+	const [, fragment] = context.options.jsxFragmentFactory
+		? context.options.jsxFragmentFactory.split(".")
+		: ["React", "Fragment"];
+
+	const createElement = tstl.createTableIndexExpression(
+		tstl.createIdentifier(library),
+		tstl.createStringLiteral(create),
+	);
+
+	return tstl.createCallExpression(createElement, [
+		tstl.createTableIndexExpression(
+			tstl.createIdentifier(library),
+			tstl.createStringLiteral(fragment),
+		),
+		tstl.createIdentifier("null"),
+		transformArrayLiteral(
+			ts.createArrayLiteral(
+				node.children
+					.filter(
+						(child) =>
+							!ts.isJsxText(child) || child.text.trim() !== "",
+					)
+					.map((child) =>
+						ts.isJsxText(child)
+							? ts.createStringLiteral(child.text.trim())
+							: child,
+					),
+				true,
+			),
+			context,
+		),
+	]);
+}
+
 export const JsxTransformer: tstl.Plugin = {
 	visitors: {
 		[ts.SyntaxKind.JsxSelfClosingElement]: transformJsxElement,
 		[ts.SyntaxKind.JsxElement]: transformJsxElement,
 		[ts.SyntaxKind.JsxExpression]: transformJsxExpression,
+		[ts.SyntaxKind.JsxFragment]: transformJsxFragment,
 	},
 };

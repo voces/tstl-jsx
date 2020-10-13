@@ -1,2 +1,1 @@
-export { JsxTransformer } from "./JsxTransformer";
-export { RequirePreload } from "./RequirePreload";
+export { JsxTransformer } from "./JsxTransformer/JsxTransformer";
