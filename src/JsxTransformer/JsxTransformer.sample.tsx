@@ -8,10 +8,13 @@ declare const Baz: any;
 const staticProps = { bux: 5 };
 
 export const App = (): unknown => (
-	<Foo foo="foo">
-		<Bar bar={3}>
-			<Baz baz={{ foo: ["value1", "value2"] }} {...staticProps} />
-			<Baz />
-		</Bar>
-	</Foo>
+	<>
+		<Foo foo="foo">
+			<Bar bar={3}>
+				<Baz baz={{ foo: ["value1", "value2"] }} {...staticProps} />
+				<Baz />
+			</Bar>
+		</Foo>
+		{/* Comment */}
+	</>
 );

@@ -1,6 +1,6 @@
 {
 	"name": "tstl-jsx",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"description": "Plugin to add JSX parsing to TSTL",
 	"author": "verit",
 	"license": "MIT",
@@ -24,8 +24,8 @@
 		"ui"
 	],
 	"peerDependencies": {
-		"typescript": "^3.9.7",
-		"typescript-to-lua": "^0.35.0"
+		"typescript": "^4.0.5",
+		"typescript-to-lua": "^0.36.0"
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.11.5",
@@ -40,8 +40,8 @@
 		"prettier": "^2.1.2",
 		"ts-jest": "^26.4.1",
 		"ts-node": "^9.0.0",
-		"typescript": "^3.9.7",
-		"typescript-to-lua": "^0.35.0"
+		"typescript": "^4.0.5",
+		"typescript-to-lua": "^0.36.0"
 	},
 	"files": [
 		"dist/"

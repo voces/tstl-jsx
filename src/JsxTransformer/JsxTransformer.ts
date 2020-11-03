@@ -119,7 +119,7 @@ function transformJsxFragment(
 			tstl.createIdentifier(library),
 			tstl.createStringLiteral(fragment),
 		),
-		tstl.createIdentifier("null"),
+		tstl.createNilLiteral(),
 		transformArrayLiteral(
 			ts.createArrayLiteral(
 				node.children

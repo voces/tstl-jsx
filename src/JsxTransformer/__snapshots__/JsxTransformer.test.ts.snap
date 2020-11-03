@@ -1623,20 +1623,27 @@ require(\\"lualib_bundle\\");
 local ____exports = {}
 local staticProps = {bux = 5}
 ____exports.App = function() return React.createElement(
-    Foo,
-    {foo = \\"foo\\"},
+    React.Fragment,
+    nil,
     {
         React.createElement(
-            Bar,
-            {bar = 3},
+            Foo,
+            {foo = \\"foo\\"},
             {
                 React.createElement(
-                    Baz,
-                    __TS__ObjectAssign({baz = {foo = {\\"value1\\", \\"value2\\"}}}, staticProps)
-                ),
-                React.createElement(Baz, {})
+                    Bar,
+                    {bar = 3},
+                    {
+                        React.createElement(
+                            Baz,
+                            __TS__ObjectAssign({baz = {foo = {\\"value1\\", \\"value2\\"}}}, staticProps)
+                        ),
+                        React.createElement(Baz, {})
+                    }
+                )
             }
-        )
+        ),
+        nil
     }
 ) end
 return ____exports
