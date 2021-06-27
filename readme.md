@@ -8,4 +8,4 @@ TODO
 
 # Examples
 
-See [w3ts-jsx](https://github.com/voces/w3ts-jsx]) for a Warcraft III adapter and [w3ts-jsx-example](https://github.com/voces/w3ts-jsx-example) for a Warcraft III map example.
+See [w3ts-jsx](https://github.com/voces/w3ts-jsx) for a Warcraft III adapter and [w3ts-jsx-example](https://github.com/voces/w3ts-jsx-example) for a Warcraft III map example.
